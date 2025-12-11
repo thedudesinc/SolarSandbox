@@ -100,7 +100,7 @@ public class BloomEffect : PostProcessingEffect {
 		return Mathf.GammaToLinearSpace (x);
 	}
 
-	void OnEnable () {//
+	void OnEnable () {
 		_shader = null;
 		var shader = _shader ? _shader : Shader.Find ("Hidden/Kino/Bloom");
 		_material = new Material (shader);

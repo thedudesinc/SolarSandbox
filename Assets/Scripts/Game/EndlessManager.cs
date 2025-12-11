@@ -13,9 +13,9 @@ public class EndlessManager : MonoBehaviour {
     public event System.Action PostFloatingOriginUpdate;
 
     void Awake () {
-        var ship = FindObjectOfType<Ship> ();
-        var player = FindObjectOfType<PlayerController> ();
-        var bodies = FindObjectsOfType<CelestialBody> ();
+        var ship = FindFirstObjectByType<Ship> ();
+        var player = FindFirstObjectByType<PlayerController> ();
+        var bodies = FindObjectsByType<CelestialBody>(FindObjectsSortMode.None);
 
         physicsObjects = new List<Transform> ();
         physicsObjects.Add (ship.transform);

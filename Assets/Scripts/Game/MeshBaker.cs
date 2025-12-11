@@ -37,8 +37,8 @@ public static class MeshBaker {
 
 public struct BakeJob : IJob {
 
-	int meshID;
-	public BakeJob (int meshID) {
+	EntityId meshID;
+	public BakeJob (EntityId meshID) {
 		this.meshID = meshID;
 	}
 

@@ -27,7 +27,7 @@ public class PlanetEffects : PostProcessingEffect {
 
 	void Init () {
 		if (effectHolders == null || effectHolders.Count == 0 || !Application.isPlaying) {
-			var generators = FindObjectsOfType<CelestialBodyGenerator> ();
+			var generators = FindObjectsByType<CelestialBodyGenerator>(FindObjectsSortMode.None);
 			effectHolders = new List<EffectHolder> (generators.Length);
 			for (int i = 0; i < generators.Length; i++) {
 				effectHolders.Add (new EffectHolder (generators[i]));

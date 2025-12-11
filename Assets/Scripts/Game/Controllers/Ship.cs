@@ -101,7 +101,7 @@ public class Ship : GravityObject {
 	}
 
 	void TeleportToBody (CelestialBody body) {
-		rb.velocity = body.velocity;
+		rb.linearVelocity = body.velocity;
 		rb.MovePosition (body.transform.position + (transform.position - body.transform.position).normalized * body.radius * 2);
 	}
 
@@ -119,7 +119,7 @@ public class Ship : GravityObject {
 	void HandleCheats () {
 		if (Universe.cheatsEnabled) {
 			if (Input.GetKeyDown (KeyCode.Return) && IsPiloted && Time.timeScale != 0) {
-				var shipHud = FindObjectOfType<ShipHUD> ();
+				var shipHud = FindFirstObjectByType<ShipHUD> ();
 				if (shipHud.LockedBody) {
 					TeleportToBody (shipHud.LockedBody);
 				}
@@ -149,7 +149,7 @@ public class Ship : GravityObject {
 	}
 
 	public void PilotShip () {
-		pilot = FindObjectOfType<PlayerController> ();
+		pilot = FindFirstObjectByType<PlayerController> ();
 		shipIsPiloted = true;
 		pilot.Camera.transform.parent = camViewPoint;
 		pilot.Camera.transform.localPosition = Vector3.zero;
@@ -164,7 +164,7 @@ public class Ship : GravityObject {
 		shipIsPiloted = false;
 		pilot.transform.position = pilotSeatPoint.position;
 		pilot.transform.rotation = pilotSeatPoint.rotation;
-		pilot.Rigidbody.velocity = rb.velocity;
+		pilot.Rigidbody.linearVelocity = rb.linearVelocity;
 		pilot.gameObject.SetActive (true);
 		window.SetActive (true);
 		pilot.ExitFromSpaceship ();
@@ -183,7 +183,7 @@ public class Ship : GravityObject {
 	}
 
 	public void SetVelocity (Vector3 velocity) {
-		rb.velocity = velocity;
+		rb.linearVelocity = velocity;
 	}
 
 	public bool ShowHUD {

@@ -62,7 +62,7 @@ public class CustomPostProcessing : MonoBehaviour {
 		}
 
 		if (debugOceanMask) {
-			Graphics.Blit (FindObjectOfType<OceanMaskRenderer> ().oceanMaskTexture, finalDestination, defaultMat);
+			Graphics.Blit (FindFirstObjectByType<OceanMaskRenderer> ().oceanMaskTexture, finalDestination, defaultMat);
 		}
 
 		// Trigger post processing complete event

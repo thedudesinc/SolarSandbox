@@ -12,7 +12,7 @@ public class CheatCodes : MonoBehaviour {
     void Update () {
         if ((Application.isEditor || !disableInBuild) && Application.isPlaying && cheatsEnabled) {
             if (Input.GetKeyDown (flyShip)) {
-               // FindObjectOfType<Ship> ().StartFlying (FindObjectOfType<PlayerController> ());
+               // FindFirstObjectByType<Ship> ().StartFlying (FindFirstObjectByType<PlayerController> ());
             }
         }
     }

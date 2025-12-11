@@ -8,6 +8,7 @@ public static class ComputeHelper {
 
 	// Subscribe to this event to be notified when buffers created in edit mode should be released
 	// (i.e before script compilation occurs, and when exitting edit mode)
+
 	public static event System.Action shouldReleaseEditModeBuffers;
 
 	// Convenience method for dispatching a compute shader.

@@ -50,7 +50,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 float x = i.uv.x * _Size.x;
-                int n = (int)(x/_Size.y*0.5);
+                uint n = (uint)(x/_Size.y*0.5);
 					 float alpha = saturate(x / _FadeDst) * _MaxAlpha;
                 
                 if (n%2==0) {

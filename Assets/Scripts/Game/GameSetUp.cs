@@ -9,8 +9,8 @@ public class GameSetUp : MonoBehaviour {
 	public CelestialBody startBody;
 
 	void Start () {
-		Ship ship = FindObjectOfType<Ship> ();
-		PlayerController player = FindObjectOfType<PlayerController> ();
+		Ship ship = FindFirstObjectByType<Ship> ();
+		PlayerController player = FindFirstObjectByType<PlayerController> ();
 
 		if (startCondition == StartCondition.InShip) {
 			ship.PilotShip ();
